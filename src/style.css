@@ -4,5 +4,9 @@
 }
 
 .hello {
-    color: red;
+    color: blue;
+    height: 600px;
+    width: 750px;
+    background: url('./images/fly.png');
+    border: 1px solid black;
 }

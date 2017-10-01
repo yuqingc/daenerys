@@ -5,4 +5,4 @@ import './style.css';
 //     <div>hello world</div>, 
 //     document.getElementById('root') 
 // );
-alert('hello');
+console.log('hello');

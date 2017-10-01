@@ -1,11 +1,10 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
   module: {
       rules: [
           {
@@ -14,8 +13,31 @@ module.exports = {
                   'style-loader',
                   'css-loader',
               ]
+          },
+          {
+              test: /\.(png|svg|jpg|gif)$/,
+              use: [
+                'file-loader'
+              ]
           }
       ]
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+    // new CleanWebpackPlugin(['dist']),
+    // new HtmlWebpackPlugin({
+    //     title: 'Long mu'
+    // })
+  ],
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   }
 
 };
