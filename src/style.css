@@ -2,11 +2,3 @@
     margin: 0;
     padding: 0;
 }
-
-.hello {
-    color: #7980fa;
-    height: 600px;
-    width: 750px;
-    background: url('./images/fly.png');
-    border: 1px solid black;
-}

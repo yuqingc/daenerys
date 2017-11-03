@@ -1,8 +1,8 @@
-import { render } from 'react-dom';
 import './style.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-// render( 
-//     <div>hello world</div>, 
-//     document.getElementById('root') 
-// );
-console.log('hello555');
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
