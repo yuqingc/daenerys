@@ -33,11 +33,12 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
     // new CleanWebpackPlugin(['dist']),
-    // new HtmlWebpackPlugin({
-    //     title: 'Long mu'
-    // })
+    new HtmlWebpackPlugin({
+        template:'src/index.html'
+
+    })
   ],
   output: {
     filename: 'bundle.js',
