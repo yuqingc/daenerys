@@ -13,3 +13,6 @@ This log was created on Nov 3, 2017. All rights reserved.
 
 - Babel added
 - React added
+- Remove `dist` directory. Make webpack put my html in `dist`.
+- `npm start` create no `dist` directory on the disk. It creates dist in memory instead.
+- `build` to build and create output files on the disk.
