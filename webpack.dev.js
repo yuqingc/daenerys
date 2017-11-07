@@ -2,8 +2,12 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
-module.exports = merge(common, {
-  entry: [ 'webpack-hot-middleware/client'],
+module.exports = merge({
+  entry: [ 
+    'react-hot-loader/patch',//这个要放在数组的第一个位置
+    'webpack-hot-middleware/client',
+    // 'babel-polyfill',
+  ],
   devtool: 'inline-source-map',//不要用于生产环境
   devServer: {
     contentBase: './dist',
@@ -15,4 +19,4 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ]
-});
+}, common);
