@@ -16,3 +16,8 @@ This log was created on Nov 3, 2017. All rights reserved.
 - Remove `dist` directory. Make webpack put my html in `dist`.
 - `npm start` create no `dist` directory on the disk. It creates dist in memory instead.
 - `build` to build and create output files on the disk.
+
+### Nov 7 2017
+
+- Express.js with Webpack Middleware finally worked, probably because of the new version (3.8.0) of Webpack.
+- I added the Webpack Hot Middleware (HMR) to my express server. (See api of 'webpack-hot-middleware' docs in npm)
