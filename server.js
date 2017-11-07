@@ -4,8 +4,10 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require("webpack-hot-middleware");
 
 const app = express();
-const config = require('./webpack.config.js');
+const config = process.argv[2] == 'prod' ? require('./webpack.prod.js') : require('./webpack.dev.js');
 const compiler = webpack(config);
+
+console.log('argv0 is: ', process.argv[2]);
 
 const port  = 3000;
 

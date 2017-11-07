@@ -1,12 +1,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   target: 'web',
-  entry: [ './src/index.js' ],
+  entry: ['./src/index.js'],
   module: {
       rules: [
           {
@@ -29,21 +27,11 @@ module.exports = {
           }
       ]
   },
-  devtool: 'inline-source-map',//不要用于生产环境
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
   plugins: [
     new CleanWebpackPlugin(['dist/*']),//如果只写dist，build 的时候会把整个文件删掉
     new HtmlWebpackPlugin({
         template:'src/index.html'
-    }),
-    //下面三个用于连接express的hot更新
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new UglifyJSPlugin()//用来删除未引用的模块(dead code)
+    })
   ],
   output: {
     filename: 'bundle.js',
