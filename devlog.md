@@ -19,6 +19,6 @@ This log was created on Nov 3, 2017. All rights reserved.
 
 ### Nov 7 2017
 
-- Express.js with Webpack Middleware finally worked, probably because of the new version (3.8.0) of Webpack.
+- Express.js with Webpack Middleware finally worked, probably because of the new version (3.8.1) of Webpack.
 - I added the Webpack Hot Middleware (HMR) to my express server. (See api of 'webpack-hot-middleware' docs in npm).
 - Create prod config and dev config.
