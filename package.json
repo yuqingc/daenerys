@@ -4,11 +4,11 @@
   "description": "mother of dragons",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack --config webpack.dev.js",
     "watch": "webpack --progress --watch",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "server": "node server.js",
-    "startall": "webpack-dev-server --open"
+    "server": "node server.js"
   },
   "author": "",
   "license": "ISC",
