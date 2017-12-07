@@ -6,7 +6,7 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
     entry: {
         vendor: ['react', 'react-dom'],
-        index: './src/index.js'
+        index: './src/index.tsx'
     },
     plugins: [
         new UglifyJSPlugin({

@@ -6,7 +6,7 @@ module.exports = merge({
   entry: [ 
     'react-hot-loader/patch',//这个要放在数组的第一个位置
     'webpack-hot-middleware/client',
-    './src/index.js'
+    './src/index.tsx'
     // 'babel-polyfill', //这个不需要 报错重复instance
   ],
   devtool: 'inline-source-map',//不要用于生产环境

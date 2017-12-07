@@ -20,9 +20,9 @@ module.exports = {
               ]
           },
           { 
-            test: /\.js$/, 
+            test: /\.tsx?$/, 
             exclude: /node_modules/, 
-            use: ["babel-loader"] 
+            use: ["react-hot-loader/webpack", "ts-loader"] 
           }
       ]
   },
@@ -35,6 +35,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
+  },
+  resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.json']
   }
 
 };
