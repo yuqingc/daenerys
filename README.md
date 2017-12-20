@@ -32,7 +32,7 @@ $ npm install
 
 3. Running
 
-If you want to use the WebPack Dev Server instead your own, run the following
+If you want to use the WebPack Dev Server instead of your own, run the following
 
 ```
 $ npm start
@@ -43,7 +43,7 @@ To run this project on a NodeJS server, run
 ```
 $ node server.js
 ```
-for a developing environment and
+for a developing environment, and
 
 ```
 $ node server.js prod
