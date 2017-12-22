@@ -29,3 +29,7 @@ This log was created on Nov 3, 2017. All rights reserved.
 ### Nov 9 2017
 - I tried to put Typescript in this project but I failed. I will not continue to put Redux and other stuffs because I still want TypeScript/TSX.
 - I will keep working on TypeScript. Onece I finish I will continue my TS Daenerys project.
+
+### Nov 23 2017
+- Redux
+- Test async actions

@@ -16,11 +16,17 @@ class Hello extends React.Component<Props, {}> {
         actions.changeAge(5);
     }
 
+    handleAsyncClick () {
+        const { actions } = this.props;
+        actions.changeAgeAsync(100);
+    }
+
     render () {
         const { name, age} = this.props;
         return <>
         <div>{this.props.name}</div>
         <button type="button" onClick={()=>{this.handleClick()}}>Click Me!!!!</button>
+        <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action</button>
         <div>{name}</div>
         <div>{age}</div>
         </>
