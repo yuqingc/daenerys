@@ -2,14 +2,18 @@ import './style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './App';
+import App from './components/App';
+import { Provider } from 'react-redux';
+import store from './lib/store';
 
 declare const module : any;
 
 const render = (Component:any) => {
   ReactDOM.render(
     <AppContainer>
-      <Component/>
+      <Provider store={store}>
+        <Component/>
+      </Provider>
     </AppContainer>,
     document.getElementById('root')
   );
@@ -18,7 +22,7 @@ const render = (Component:any) => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./App', () => { render(require('./App').default) })
+  module.hot.accept('./components/App', () => { render(require('./components/App').default) })
 }
 
 

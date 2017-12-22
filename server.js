@@ -24,7 +24,7 @@ if(!isProd){
 
   app.use(webpackHotMiddleware(compiler));
 
-}else{
+} else {
 
   app.use('/', express.static(path.join(__dirname, 'dist')));
 
