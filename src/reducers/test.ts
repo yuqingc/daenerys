@@ -1,5 +1,5 @@
 import immutable from 'immutable';
-import { TestActionType } from '../actions/action'
+import { TestActionType } from '../actions/ActionTypes'
 
 interface testState {
     name : string;

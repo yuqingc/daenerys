@@ -1,4 +1,4 @@
-import { TestActionType } from './action';
+import { TestActionType } from './ActionTypes';
 
 export function changeAge (age: number): TestActionType {
     return {
