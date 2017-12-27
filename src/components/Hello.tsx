@@ -23,21 +23,28 @@ class Hello extends React.Component<Props, {}> {
 
     render () {
         const { name, age} = this.props;
-        return <>
-        <div>{this.props.name}</div>
-        <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!!!</button>
-        <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action</button>
-        <div>{name}</div>
-        <div>{age}</div>
-        </>
+        return (
+        <>
+            <div>{this.props.name}</div>
+            <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!!!</button>
+            <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action</button>
+            <div>{name}</div>
+            <div>{age}</div>
+        </>)
     }
 }
 
-export default connect((state: any) => {
-    return{
+function mapStateToProps(state: any) {
+    return { 
         name: state.test.get('name'),
         age: state.test.get('age'),
     }
-}, dispatch => ({
-    actions: bindActionCreators(testActions, dispatch),
-}))(Hello as any);
+}
+  
+function mapDispatchToProps(dispatch: any) {
+    return { 
+        actions: bindActionCreators(testActions, dispatch) 
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hello as any);
