@@ -33,3 +33,6 @@ This log was created on Nov 3, 2017. All rights reserved.
 ### Nov 23 2017
 - Redux
 - Test async actions
+
+### Nov 27 2017
+- Hot Module Reaplace worked again. I think it is tmux that makes HMR fail.

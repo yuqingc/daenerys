@@ -7,11 +7,20 @@ module.exports = {
   module: {
       rules: [
           {
-              test: /\.css$/,
-              use: [
-                  'style-loader',
-                  'css-loader',
-              ]
+              test: /\.scss$/,
+              use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader", 
+                options: {
+                    sourceMap: true
+                } // translates CSS into CommonJS
+            }, {
+                loader: "sass-loader", 
+                options: {
+                    sourceMap: true
+                } // compiles Sass to CSS
+            }]
           },
           {
               test: /\.(png|svg|jpg|gif)$/,
