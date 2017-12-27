@@ -32,6 +32,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "@types/antd": "^1.0.0",
     "@types/immutable": "^3.8.7",
     "@types/react": "^16.0.27",
     "@types/react-dom": "^16.0.3",

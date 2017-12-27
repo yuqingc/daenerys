@@ -36,3 +36,13 @@ This log was created on Nov 3, 2017. All rights reserved.
 
 ### Nov 27 2017
 - Hot Module Reaplace worked again. I think it is tmux that makes HMR fail.
+- When I tried to use a Component imported from node_modules, I got a ts compile error 2339
+```
+ERROR in /home/yuqing/proj/daenerys/src/components/common/MtNavHeader.tsx(35,19)
+      TS2339: Property 'Item' does not exist on type '(props: any) => any'.
+```
+I googled it. I add this to the tsconfig.json and it worked.
+
+```json
+"moduleResolution": "node",
+```

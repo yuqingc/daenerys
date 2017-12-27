@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@types/antd@^1.0.0":
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/@types/antd/download/@types/antd-1.0.0.tgz#f04e2a84efd9ea937366cd3dfbada5d3c949471d"
+  dependencies:
+    antd "*"
+
 "@types/immutable@^3.8.7":
   version "3.8.7"
   resolved "https://registry.yarnpkg.com/@types/immutable/-/immutable-3.8.7.tgz#536d33d30f3f3d9a6d4642a219419fd82af633fb"
@@ -152,7 +158,7 @@ ansi-styles@^3.1.0:
   dependencies:
     color-convert "^1.9.0"
 
-antd@^3.0.3:
+antd@*, antd@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/antd/-/antd-3.0.3.tgz#ba9519fb8f6fa45b54b248b6139381ff83d5f382"
   dependencies:

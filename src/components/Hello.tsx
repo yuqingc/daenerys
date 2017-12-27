@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as testActions from '../actions/testActions';
 import Button from 'antd/lib/button';
+import MtNavHeader from './common/MtNavHeader';
 
 interface Props {
     name: string;
@@ -24,14 +25,17 @@ class Hello extends React.Component<Props, {}> {
 
     render () {
         const { name, age} = this.props;
+        console.log('Test is', Test);
         return (
         <>
+            <MtNavHeader />
             <div>{this.props.name}</div>
             <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!!!</button>
             <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action...</button>
             <div>{name}</div>
             <div>{age}</div>
             <Button type="primary">Button</Button>
+            <Test/>
         </>)
     }
 }
@@ -50,3 +54,9 @@ function mapDispatchToProps(dispatch: any) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hello as any);
+
+class Test extends React.Component <any, any>{
+    render() {
+        return <div>testtesttest</div>
+    }
+}
