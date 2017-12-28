@@ -1,5 +1,5 @@
-const Koa = require('koa');
-const webpack = require('webpack');
+import * as Koa from 'koa';
+import * as webpack from'webpack';
 const { devMiddleware, hotMiddleware } = require('koa-webpack-middleware');
 const app = new Koa();
 
