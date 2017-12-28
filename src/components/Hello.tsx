@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as testActions from '../actions/testActions';
 import Button from 'antd/lib/button';
-import MtNavHeader from './common/MtNavHeader';
+import MtContainer from './common/MtContainer';
 
 interface Props {
     name: string;
@@ -28,14 +28,13 @@ class Hello extends React.Component<Props, {}> {
         console.log('Test is', Test);
         return (
         <>
-            <MtNavHeader />
-            <div>{this.props.name}</div>
-            <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!</button>
-            <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action...</button>
-            <div>{name}</div>
-            <div>{age}</div>
-            <Button type="primary">Button</Button>
-            <Test/>
+            <MtContainer>
+                <div>{this.props.name}</div>
+                <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!</button>
+                <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action...</button>
+                <div>{name}</div>
+                <div>{age}</div>
+            <Button type="primary">Button</Button></MtContainer>
         </>)
     }
 }
