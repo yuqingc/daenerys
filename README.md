@@ -35,32 +35,19 @@ $ npm install
 If you want to use the WebPack Dev Server instead of your own, run the following
 
 ```
-$ npm start
+$ yarn run build-server
+$ yarn run run-server
 ```
-
-To run this project on a NodeJS server, run
-
-```
-$ node server.js
-```
-for a developing environment, and
-
-```
-$ node server.js prod
-```
-
-for a production version
-
 
 4. If you want to build the frontend project ONLY, instead of running it on a server, run
 ```
-$ npm run-script webpack --config webpack.prod.js
+$ yarn run build-prod
 ```
 
 or
 
 ```
-webpack --config webpack.dev.js 
+yarn run build-dev 
 ```
 for a developing version
 

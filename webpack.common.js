@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist/*']),//如果只写dist，build 的时候会把整个文件删掉
     new HtmlWebpackPlugin({
-        template:'src/index.html'
+        template: path.resolve(__dirname, 'src/index.html')
     })
   ],
   output: {

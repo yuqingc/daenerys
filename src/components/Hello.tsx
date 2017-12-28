@@ -30,7 +30,7 @@ class Hello extends React.Component<Props, {}> {
         <>
             <MtNavHeader />
             <div>{this.props.name}</div>
-            <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!!!</button>
+            <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!</button>
             <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action...</button>
             <div>{name}</div>
             <div>{age}</div>

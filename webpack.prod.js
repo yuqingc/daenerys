@@ -2,11 +2,12 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
+const path = require('path');
 
 module.exports = merge(common, {
     entry: {
         vendor: ['react', 'react-dom'],
-        index: './src/index.tsx'
+        index: path.resolve(__dirname, 'src/index.tsx')
     },
     plugins: [
         new UglifyJSPlugin({

@@ -1,1 +1,0 @@
-export const testStr: string = "Hello world!";
