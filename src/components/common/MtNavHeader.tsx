@@ -33,7 +33,7 @@ class MtNavHeader extends React.Component<Props, any> {
                     <Icon type="picture" />Gallery
                 </Menu.Item>
                 <Menu.Item key="feedback">
-                    <Icon type="user" />Feedback
+                    <Icon type="message" />Feedback
                 </Menu.Item>
                 <Menu.Item key="about">
                     <Icon type="info-circle-o" />About
