@@ -10,24 +10,22 @@ import {
 import { Home } from './home';
 import { Blogs } from './blogs';
 import { Gallery } from './gallery';
-import { Profile } from './profile';
+import { Feedback } from './feedback';
 import { About } from './about';
 
 export default class App extends React.Component{
     render(){
         return (
-            <MtContainer>
                 <Router>
                     <Switch>
                             <Route exact path='/' component={Home}/>
                             <Route path='/home' component={Home}/>
                             <Route path='/blogs' component={Blogs}/>
                             <Route path='/gallery' component={Gallery}/>
-                            <Route path='/profile' component={Profile}/>
+                            <Route path='/feedback' component={Feedback}/>
                             <Route path='/about' component={About}/>
                     </Switch>
                 </Router>
-            </MtContainer>
         )
     }
 }

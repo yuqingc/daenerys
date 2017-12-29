@@ -46,3 +46,6 @@ I googled it. I add this to the tsconfig.json and it worked.
 ```json
 "moduleResolution": "node",
 ```
+
+### Nov 29 2017
+- 加了一个 react-router 还是有一点小坑的，填坑完毕。

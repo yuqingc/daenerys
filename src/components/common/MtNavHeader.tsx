@@ -2,29 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Menu, Icon } from 'antd';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-interface Props {
-    [propName: string] : any;
+interface Props extends RouteComponentProps<{}>{
+    value: string;
 }
 
+class MtNavHeader extends React.Component<Props, any> {
+    handleClick (e: any) {
+        const { history } = this.props;
+        history.push('/' + e.key);
+    } 
 
-//这个就当做一个模板 下次直接copy
-class MtNavHeader extends React.Component<Props, {}> {
-    state = {
-        current: 'home',
-    }
-      handleClick = (e: any) => {
-          const { history } = this.props;
-            console.log('click ', e);
-            this.setState({
-                current: e.key,
-            });
-      }
-      render() {
+    render() {
+        const { value } = this.props;
             return (
             <Menu
-                onClick={this.handleClick}
-                selectedKeys={[this.state.current]}
+                onClick={(e: any) => {this.handleClick(e)}}
+                selectedKeys={[value]}
                 mode="horizontal"
                 theme="light"
             >
@@ -37,8 +32,8 @@ class MtNavHeader extends React.Component<Props, {}> {
                 <Menu.Item key="gallery">
                     <Icon type="picture" />Gallery
                 </Menu.Item>
-                <Menu.Item key="profile">
-                    <Icon type="user" />Profile
+                <Menu.Item key="feedback">
+                    <Icon type="user" />Feedback
                 </Menu.Item>
                 <Menu.Item key="about">
                     <Icon type="info-circle-o" />About
@@ -48,4 +43,4 @@ class MtNavHeader extends React.Component<Props, {}> {
       }
 }
 
-export default MtNavHeader;
+export default withRouter(MtNavHeader);

@@ -28,7 +28,7 @@ class Hello extends React.Component<Props, {}> {
         console.log('Test is', Test);
         return (
         <>
-            <MtContainer>
+            <MtContainer value='hello'>
                 <div>{this.props.name}</div>
                 <button type="button" onClick={this.handleClick.bind(this)}>Click Me!!</button>
                 <button type="button" onClick={()=>{this.handleAsyncClick()}}>异步action...</button>
