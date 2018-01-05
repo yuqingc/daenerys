@@ -36,12 +36,13 @@ app.use(devMiddleware(compile, {
     stats: {
         colors: true
     }
-}))
+}));
+
 app.use(hotMiddleware(compile, {
   // log: console.log,
   // path: '/__webpack_hmr',
   // heartbeat: 10 * 1000
-}))
+}));
   
 app.listen(port, function () {
     console.log("Server is running at port " + port);
