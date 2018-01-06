@@ -23,12 +23,12 @@ app.use(async (ctx:any, next:any) => {
   
   // response
   
-app.use(async (ctx:any) => {
+app.use(async (ctx: any) => {
     ctx.body = 'Hello World';
     console.log('ctx is ', ctx);
 });
 
-app.on('error', err => {
+app.on('error', (err: any) => {
     console.error('server error', err)
   });
 

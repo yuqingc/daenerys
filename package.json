@@ -4,7 +4,8 @@
   "description": "mother of dragons",
   "main": "index.js",
   "scripts": {
-    "build-server": "tsc -p server --watch",
+    "build-server": "tsc -p server",
+    "watch-server": "tsc -p server --watch",
     "run-server": "node server/out/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack --config webpack.dev.js",
