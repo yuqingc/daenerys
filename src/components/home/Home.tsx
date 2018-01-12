@@ -1,15 +1,21 @@
 import React from 'react';
 import MtContainer from '../common/MtContainer';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-class Home extends React.Component {
+interface Props extends RouteComponentProps<{}>{
+}
+
+class Home extends React.Component<Props, any> {
     render () {
+        const { history } = this.props;
         return (
             <MtContainer value='home'>
                 <div>Home</div>
+                <a onClick={()=>{history.push('/ffffff')}}>To 404....</a>
                 <div><img src={require("../../images/fly.png")} alt="" style={{width:'200px'}}/></div>
             </MtContainer>
         )
     }
 }
 
-export default Home;
+export default withRouter(Home);

@@ -1,49 +1,21 @@
-import * as Koa from 'koa';
-import * as webpack from'webpack';
-const { devMiddleware, hotMiddleware } = require('koa-webpack-middleware');
-const app = new Koa();
+const express = require('express');
+const path = require('path');
+const app = express();
 
-const port: number = 8888;
+//const isProd = process.argv[2] == 'prod';
 
-const devConfig = require('../../webpack.dev.js');
-const compile = webpack(devConfig);
+//console.log(`Express server is: ${process.argv[2] || 'dev'}`);
 
-app.use(devMiddleware(compile, {
-    // display no info to console (only warnings and errors)
-    noInfo: false,
+const port  = 8888;
 
-    // display nothing to the console
-    quiet: false,
 
-    // switch into lazy mode
-    // that means no watching, but recompilation on every request
-    lazy: false,
+app.use('/', express.static(path.join(__dirname, '../../dist')));
 
-    // watch options (only lazy: false)
-    watchOptions: {
-        aggregateTimeout: 300,
-        poll: true
-    },
+app.get('/*', function(req:any, res:any) {
+    res.sendfile(path.join(__dirname, '../../dist/index.html'));
+});
 
-    // public path to bind the middleware to
-    // use the same as in webpack
-    publicPath: "/",
-
-    // custom headers
-    headers: { "X-Custom-Header": "yes" },
-
-    // options for formating the statistics
-    stats: {
-        colors: true
-    }
-}));
-
-app.use(hotMiddleware(compile, {
-  // log: console.log,
-  // path: '/__webpack_hmr',
-  // heartbeat: 10 * 1000
-}));
-  
+// Serve the files on port 8888.
 app.listen(port, function () {
-    console.log("Server is running at port " + port);
+  console.log(`Example app listening on port ${port}!\n`);
 });

@@ -12,6 +12,7 @@ import { Blogs } from './blogs';
 import { Gallery } from './gallery';
 import { Feedback } from './feedback';
 import { About } from './about';
+import NoMatch from './common/NoMatch';
 
 export default class App extends React.Component{
     render(){
@@ -24,6 +25,7 @@ export default class App extends React.Component{
                             <Route path='/gallery' component={Gallery}/>
                             <Route path='/feedback' component={Feedback}/>
                             <Route path='/about' component={About}/>
+                            <Route component={NoMatch}/>
                     </Switch>
                 </Router>
         )

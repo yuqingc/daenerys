@@ -31,7 +31,8 @@ module.exports = {
           { 
             test: /\.tsx?$/, 
             exclude: /node_modules/, 
-            use: ["react-hot-loader/webpack", "ts-loader"] 
+            //use: ["react-hot-loader/webpack", "ts-loader"] 
+            use: ['ts-loader']
           }
       ]
   },
