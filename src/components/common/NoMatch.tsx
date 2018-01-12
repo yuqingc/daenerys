@@ -10,7 +10,7 @@ class NoMatch extends React.Component<any, {}> {
         return <div>
             <h2>404 Not Found</h2>
             <div>Cannot find resource {location.pathname}</div>
-            <a onClick={()=>{history.push('/home')}}>Back to Home</a>
+            <a onClick={()=>{history.push('/matt/home')}}>Back to Home</a>
         </div>
     }
 }

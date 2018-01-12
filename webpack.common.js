@@ -44,7 +44,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/matt/'
   },
   resolve: {
       extensions: ['.ts', '.tsx', '.js', '.json']

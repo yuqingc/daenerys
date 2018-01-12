@@ -19,12 +19,12 @@ export default class App extends React.Component{
         return (
                 <Router>
                     <Switch>
-                            <Route exact path='/' component={Home}/>
-                            <Route path='/home' component={Home}/>
-                            <Route path='/blogs' component={Blogs}/>
-                            <Route path='/gallery' component={Gallery}/>
-                            <Route path='/feedback' component={Feedback}/>
-                            <Route path='/about' component={About}/>
+                            <Route exact path='/matt' component={Home}/>
+                            <Route path='/matt/home' component={Home}/>
+                            <Route path='/matt/blogs' component={Blogs}/>
+                            <Route path='/matt/gallery' component={Gallery}/>
+                            <Route path='/matt/feedback' component={Feedback}/>
+                            <Route path='/matt/about' component={About}/>
                             <Route component={NoMatch}/>
                     </Switch>
                 </Router>

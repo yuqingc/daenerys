@@ -11,7 +11,7 @@ interface Props extends RouteComponentProps<{}>{
 class MtNavHeader extends React.Component<Props, any> {
     handleClick (e: any) {
         const { history } = this.props;
-        history.push('/' + e.key);
+        history.push('/matt/' + e.key);
     } 
 
     render() {

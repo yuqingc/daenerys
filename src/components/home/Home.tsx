@@ -11,7 +11,7 @@ class Home extends React.Component<Props, any> {
         return (
             <MtContainer value='home'>
                 <div>Home</div>
-                <a onClick={()=>{history.push('/ffffff')}}>To 404....</a>
+                <a onClick={()=>{history.push('/matt/ffffff')}}>To 404....</a>
                 <div><img src={require("../../images/fly.png")} alt="" style={{width:'200px'}}/></div>
             </MtContainer>
         )
