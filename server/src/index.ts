@@ -6,7 +6,7 @@ const app = express();
 
 //console.log(`Express server is: ${process.argv[2] || 'dev'}`);
 
-const port  = 8888;
+const port: number = 8888;
 
 
 app.use('/matt', express.static(path.join(__dirname, '../../dist')));
