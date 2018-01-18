@@ -47,33 +47,82 @@ matt.use(function(err:any, req: any, res: any, next: any) {
 const books = [
     {
         title: "Harry Potter and the Sorcerer's stone",
-        author: 'J.K. Rowling',
+        author: '2',
     },
     {
         title: 'Jurassic Park',
-        author: 'Michael Crichton',
+        author: '1',
     },
     {
         title: 'A Song of Ice and Fire',
-        author: 'George R. R. Martin',
+        author: '4',
     },
     {
         title: '三国演义',
-        author: '罗贯中',
+        author: '3',
     },
 ];
 
+const people = [
+    {
+        _id: '1',
+        name: 'Michael Crichton',
+        age: 20,
+    },
+    {
+        _id: '2',
+        name: 'J.K. Rowling',
+        age: 30,
+    },
+    {
+        _id: '3',
+        name: '罗贯中',
+        age: 300,
+    },
+    {
+        _id: '4',
+        name: 'George R. R. Martin',
+        age: 60,
+    }
+];
+
+
+//Schema
 const typeDefs = `
-    type Query { books: [Book] }
-    type Book { title: String, author: String }
+    type Query { 
+        books: [Book], 
+        author_info: Person, 
+        people: [Person] 
+    }
+    type Book { 
+        title: String, 
+        author: String, 
+        author_info(name: String): Person 
+    }
+    type Person { 
+        name: String, 
+        age: Int 
+    }
 `;
 
+//Model
 const resolvers = {
-    Query: { books: async function () {
-        let res = await books;
-        return res;
-    }}
-}
+    Query: { 
+        books: async function () {
+            let res = await books;
+            return res;
+        },
+        author_info: function (author: string) {
+            console.log('哈哈哈哈哈哈哈哈', author);
+            for (let person of people) {
+                if (person._id && person._id === author) return person;
+            }
+            return null;
+        },
+        people: function () {
+            return people;
+        }
+}}
 
 const schema = makeExecutableSchema({
     typeDefs,
@@ -97,3 +146,20 @@ var server = app.listen(port, function () {
     console.log('address() is', server.address());
     console.log('Winterfell app listening at http://%s:%s', host, port);
 });
+
+/**
+ * 前端使用post请求拿数据拿数据
+var headers = new Headers()
+headers.append('Content-Type', 'application/json')
+headers.append('content-length', '572')
+
+fetch(
+	'http://localhost:8888/graphql', 
+	{
+		method:'POST', 
+		body: JSON.stringify({query: "{books{ title }}", variables: null, operationName: null}),
+    headers,
+	}).then(res => res.json()).then(r => {
+		console.log('sbhouyi', r)
+	})
+ */
