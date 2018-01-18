@@ -44,89 +44,94 @@ matt.use(function(err:any, req: any, res: any, next: any) {
 });
 
 // 这里试一下graphql
-const books = [
-    {
-        title: "Harry Potter and the Sorcerer's stone",
-        author: '2',
-    },
-    {
-        title: 'Jurassic Park',
-        author: '1',
-    },
-    {
-        title: 'A Song of Ice and Fire',
-        author: '4',
-    },
-    {
-        title: '三国演义',
-        author: '3',
-    },
-];
+// const books = [
+//     {
+//         title: "Harry Potter and the Sorcerer's stone",
+//         author: '2',
+//     },
+//     {
+//         title: 'Jurassic Park',
+//         author: '1',
+//     },
+//     {
+//         title: 'A Song of Ice and Fire',
+//         author: '4',
+//     },
+//     {
+//         title: '三国演义',
+//         author: '3',
+//     },
+// ];
 
-const people = [
-    {
-        _id: '1',
-        name: 'Michael Crichton',
-        age: 20,
-    },
-    {
-        _id: '2',
-        name: 'J.K. Rowling',
-        age: 30,
-    },
-    {
-        _id: '3',
-        name: '罗贯中',
-        age: 300,
-    },
-    {
-        _id: '4',
-        name: 'George R. R. Martin',
-        age: 60,
-    }
-];
+// const people = [
+//     {
+//         _id: '1',
+//         name: 'Michael Crichton',
+//         age: 20,
+//     },
+//     {
+//         _id: '2',
+//         name: 'J.K. Rowling',
+//         age: 30,
+//     },
+//     {
+//         _id: '3',
+//         name: '罗贯中',
+//         age: 300,
+//     },
+//     {
+//         _id: '4',
+//         name: 'George R. R. Martin',
+//         age: 60,
+//     }
+// ];
 
 
 //Schema
-const typeDefs = `
-    type Query { 
-        books: [Book], 
-        people: [Person] 
-    }
-    type Book { 
-        title: String, 
-        author: String, 
-        author_info: Person 
-    }
-    type Person { 
-        name: String, 
-        age: Int 
-    }
-`;
+// const typeDefs = `
+//     type Query { 
+//         books: [Book], 
+//         people: [Person] 
+//     }
+//     type Book { 
+//         title: String, 
+//         author: String, 
+//         author_info: Person 
+//     }
+//     type Person { 
+//         name: String, 
+//         age: Int 
+//     }
+// `;
 
 //Model
-const resolvers = {
-    Query: { 
-        books: async function () {
-            let res = await books;
-            return res;
-        },
-        people: function () {
-            return people;
-        },
-    },
-    Book: {
-        author_info: function (book: any) {
-            for (let person of people) {
-                if (person._id && person._id === book.author) return person;
-            }
-            return null;
-        }
-    }
-}
+// const resolvers = {
+//     Query: { 
+//         books: async function () {
+//             let res = await books;
+//             return res;
+//         },
+//         people: function () {
+//             return people;
+//         },
+//     },
+//     Book: {
+//         author_info: function (book: any) {
+//             for (let person of people) {
+//                 if (person._id && person._id === book.author) return person;
+//             }
+//             return null;
+//         }
+//     }
+// }
+
+import schemas from './schema';
+import resolvers from './resolvers/testResolver';
+
+console.log('哈哈哈', resolvers);
 
 const schema = makeExecutableSchema({
-    typeDefs,
+    typeDefs: schemas,
     resolvers,
 })
 

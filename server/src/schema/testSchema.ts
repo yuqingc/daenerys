@@ -15,4 +15,22 @@ const typeDefs = `
     }
 `;
 
-export default typeDefs;
+const Book: string = `
+    type Book { 
+        title: String, 
+        author: String, 
+        author_info(name: String): Person 
+    }
+`;
+
+const Person: string = `
+    type Person { 
+        name: String, 
+        age: Int 
+    }
+`;
+
+export default () => [
+    Book, 
+    Person,
+];
