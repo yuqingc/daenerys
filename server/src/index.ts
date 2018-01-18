@@ -91,13 +91,12 @@ const people = [
 const typeDefs = `
     type Query { 
         books: [Book], 
-        author_info: Person, 
         people: [Person] 
     }
     type Book { 
         title: String, 
         author: String, 
-        author_info(name: String): Person 
+        author_info: Person 
     }
     type Person { 
         name: String, 
@@ -112,17 +111,19 @@ const resolvers = {
             let res = await books;
             return res;
         },
-        author_info: function (author: string) {
-            console.log('哈哈哈哈哈哈哈哈', author);
-            for (let person of people) {
-                if (person._id && person._id === author) return person;
-            }
-            return null;
-        },
         people: function () {
             return people;
+        },
+    },
+    Book: {
+        author_info: function (book: any) {
+            for (let person of people) {
+                if (person._id && person._id === book.author) return person;
+            }
+            return null;
         }
-}}
+    }
+}
 
 const schema = makeExecutableSchema({
     typeDefs,
