@@ -48,12 +48,28 @@ import resolvers from './resolvers';
 
 console.log('哈哈哈', resolvers);
 
+const logger = { log: (e: any) => console.log(e) }
+
 const schema = makeExecutableSchema({
     typeDefs: rawSchema,
     resolvers,
+    logger,
+    allowUndefinedInResolve: false,
 })
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use(
+    '/graphql', 
+    bodyParser.json(), 
+    graphqlExpress( (req: any) => { 
+        return {
+            schema,
+            //这个context到时候可以在resolver 的第三个参数里面打印出来
+            context: {
+                reqInfo: req,
+            }
+        } 
+    }),
+);
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql'}));
 
