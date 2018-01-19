@@ -1,9 +1,11 @@
 import Query from './Query';
-import testSchema from './testSchema';
+import Book from './Book';
+import Person from './Person';
 
-const schemas = [
+const rawSchema = [
     Query,
-    testSchema,
+    Book,
+    Person,
 ];
 
-export default schemas;
+export default rawSchema;

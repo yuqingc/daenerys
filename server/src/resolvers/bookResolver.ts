@@ -1,4 +1,3 @@
-import { merge } from 'lodash';
 import { booksData, peopleData } from './fakeData';
 
 async function books () {
@@ -14,18 +13,11 @@ function author_info (book: any) {
     return null;
 }
 
-function people () {
-    return peopleData;
-}
-
-const resolvers = {
+export default {
     Query: {
         books,
-        people,
     },
     Book: {
         author_info,
     }
-};
-
-export default resolvers;
+}
