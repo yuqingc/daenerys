@@ -103,3 +103,15 @@ fetch(
 		console.log('sbhouyi', r)
 	})
  */
+
+var MongoClient = require('mongodb').MongoClient;
+
+var url = 'mongodb://localhost:27017/test';
+
+MongoClient.connect(url, async function(err: any, db: any) {
+    console.log("Connected successfully to server");
+    var collection = db.collection('task');
+    var res = await collection.find().toArray();
+    console.log('查询数据库的结果是', res);
+    // db.close();
+});

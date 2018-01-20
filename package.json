@@ -57,6 +57,7 @@
     "immutable": "^3.8.2",
     "koa": "^2.3.0",
     "lodash": "^4.17.4",
+    "mongodb": "2.2",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

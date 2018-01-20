@@ -1,5 +1,5 @@
 import { booksData, peopleData } from './fakeData';
-import * as DataLoader from 'dataloader';
+import DataLoader = require('dataloader');
 import { people } from './personResolver';
 
 async function getAuthors (ids: number[]) {
@@ -7,9 +7,17 @@ async function getAuthors (ids: number[]) {
     return people();
 }
 
-var authorLoader = new DataLoader((keys: number[]) => getAuthors(keys));
+//建议每次请求都创建一个新的
+// var authorLoader: DataLoader<number, any> = new DataLoader((keys: number[]) => getAuthors(keys));
+var authorLoader: DataLoader<number, any>;
+
+// 每一个请求都会创建一个新的 dataloader 的实例 这里可以传入一些用户的信息
+function createAuthorLoader () : DataLoader<number, any> {
+    return new DataLoader((keys: number[]) => getAuthors(keys))
+}
 
 async function books (obj: any) {
+    authorLoader = createAuthorLoader()
     let res = await booksData;
     return res;
 }
@@ -22,9 +30,6 @@ async function books (obj: any) {
  * @param info 这是内置的关于这个请求的一些信息
  */
 function author_info (obj: any, args?: any, context?: any, info?: any) {
-
-
-    console.log('这是book', obj);
     return authorLoader.load(obj.author);
     // for (let person of peopleData) {
     //     if (person._id && person._id === obj.author) return person;

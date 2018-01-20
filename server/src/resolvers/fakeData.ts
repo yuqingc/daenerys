@@ -27,11 +27,6 @@ export const booksData = [
 
 export const peopleData = [
     {
-        _id: '1',
-        name: 'Michael Crichton',
-        age: 20,
-    },
-    {
         _id: '2',
         name: 'J.K. Rowling',
         age: 30,
@@ -40,6 +35,11 @@ export const peopleData = [
         _id: '3',
         name: '罗贯中',
         age: 300,
+    },
+    {
+        _id: '1',
+        name: 'Michael Crichton',
+        age: 20,
     },
     {
         _id: '4',

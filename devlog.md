@@ -52,3 +52,7 @@ I googled it. I add this to the tsconfig.json and it worked.
 
 ### Jan 18 2018
 - 准备加入 apollo
+
+### Jan 20 2018
+- 加入了 facebook 出品的 dataloader
+- dataloader 解决了 graphql 最大的痛点，让 graphql 成为一个近乎完美的 api 请求用语言
