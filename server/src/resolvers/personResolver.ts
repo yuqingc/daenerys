@@ -1,6 +1,6 @@
 import { peopleData } from './fakeData';
 
-function people () {
+export function people () {
     return peopleData;
 }
 

@@ -1,4 +1,13 @@
 import { booksData, peopleData } from './fakeData';
+import * as DataLoader from 'dataloader';
+import { people } from './personResolver';
+
+async function getAuthors (ids: number[]) {
+    console.log('看一下这里请求了几次呢', ids);
+    return people();
+}
+
+var authorLoader = new DataLoader((keys: number[]) => getAuthors(keys));
 
 async function books (obj: any) {
     let res = await booksData;
@@ -12,12 +21,15 @@ async function books (obj: any) {
  * @param context 这个就是app.use里面的那个函数传进来的context信息
  * @param info 这是内置的关于这个请求的一些信息
  */
-function author_info (obj: any, args: any, context: any, info: any) {
+function author_info (obj: any, args?: any, context?: any, info?: any) {
+
+
     console.log('这是book', obj);
-    for (let person of peopleData) {
-        if (person._id && person._id === obj.author) return person;
-    }
-    return null;
+    return authorLoader.load(obj.author);
+    // for (let person of peopleData) {
+    //     if (person._id && person._id === obj.author) return person;
+    // }
+    // return null;
 }
 
 export default {

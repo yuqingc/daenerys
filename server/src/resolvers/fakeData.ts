@@ -4,16 +4,16 @@ export const booksData = [
         author: '2',
     },
     {
+        title: '三国演义',
+        author: '3',
+    },
+    {
         title: 'Jurassic Park',
         author: '1',
     },
     {
         title: 'A Song of Ice and Fire',
         author: '4',
-    },
-    {
-        title: '三国演义',
-        author: '3',
     },
     {
         title: '另一本书',
