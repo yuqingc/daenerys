@@ -15,6 +15,8 @@ const port: number = 8888;
 
 matt.use('/', express.static(path.join(__dirname, '../../dist')));
 
+app.use('/lib', express.static(path.join(__dirname, '../../src/lib')))
+
 matt.get('/*', function(req: any, res: any, next: any) {
     res.sendfile(path.join(__dirname, '../../dist/index.html'));
     //直接调用下一个大写字母那种类型的请求的中间件
