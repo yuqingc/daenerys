@@ -51,7 +51,8 @@ class MtInput extends React.Component<MtInputPropsType, MtInputStateType> {
         if(typeof this.props.value === 'undefined'){
             this.setState({
                 value: event.target.value,
-            });}
+            });
+        }
         if(this.props.onChange !== undefined) {
             return this.props.onChange(event.target.value);
         }
@@ -66,7 +67,7 @@ class MtInput extends React.Component<MtInputPropsType, MtInputStateType> {
         this.setState({isFocused: false});
     }
 
-    render () {
+    render() {
         const MtInputStyle = {
             whiteSpace: this.props.multipulLine ? undefined : 'nowrap',
             border: this.state.isFocused ? '1px solid ' + this.props.color : '1px solid #dddddd',
